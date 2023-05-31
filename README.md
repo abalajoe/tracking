@@ -4,6 +4,8 @@ Supply Chain Track and Trace System
 # Demo
 I have deployed a demo application at http://159.223.29.248/
 
+The credentials are under authentication section below.
+
 # Access Control
 ADMIN ROLE - Create supply, edit supply, update supply event, query individual supply events\
 USER ROLE - View supply, query individual supply events 
@@ -26,3 +28,11 @@ The Docker file for the engine can be located at the root folder. The docker-com
 
 # Unit tests
 The unit tests for the supply chain resource can be located at iota/src/test
+
+# How to run
+1. Copy the sql folder into your root folder. This contains the init.sql script.
+2. Copy the docker-compose.yml file into your root folder.
+3. install docker and docker-compose.
+4. Change the API_URL environment variable under iotatrackingweb to your server url.
+5. Run docker-compose up.
+6. Access the web application on port 80.
