@@ -1,0 +1,333 @@
+{
+	"info": {
+		"_postman_id": "edd2b019-c33d-4e39-ada1-738d5d723b42",
+		"name": "tracking collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "login",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"email\":\"user@gmail.com\", \"password\":\"user@123!\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://159.223.29.248:8080/api/login",
+					"protocol": "http",
+					"host": [
+						"159",
+						"223",
+						"29",
+						"248"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "findAllProductsByRecipient",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbkBnbWFpbC5jb20iLCJyb2xlcyI6WyJST0xFX0FETUlOIl0sImlzcyI6Imh0dHA6Ly8xNTkuMjIzLjI5LjI0ODo4MDgwL2FwaS9pb3RhL3RyYWNraW5nL3YxL2xvZ2luIiwiZXhwIjoxNjg2NzIxNDU1fQ.cEw1B28tmhavp3nMjvqHkkMxs6TU2GAGlsflNX1Csew",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://159.223.29.248:8080/api/iota/tracking/v1/product/findAllProductsByRecipient?email=johndoe@gmail.com",
+					"protocol": "http",
+					"host": [
+						"159",
+						"223",
+						"29",
+						"248"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"iota",
+						"tracking",
+						"v1",
+						"product",
+						"findAllProductsByRecipient"
+					],
+					"query": [
+						{
+							"key": "email",
+							"value": "johndoe@gmail.com"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "findAllProducts",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqb2huZG9lQGdtYWlsLmNvbSIsInJvbGVzIjpbIlJPTEVfVVNFUiJdLCJpc3MiOiJodHRwOi8vMTU5LjIyMy4yOS4yNDg6ODA4MC9hcGkvaW90YS90cmFja2luZy92MS9sb2dpbiIsImV4cCI6MTY4NjcyMTM1Mn0.uL_ieYBLmcj6nd5wku-Q530DuY353C_0A-7VGcpOdBE",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://159.223.29.248:8080/api/tracking/product/findAllProducts",
+					"protocol": "http",
+					"host": [
+						"159",
+						"223",
+						"29",
+						"248"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"tracking",
+						"product",
+						"findAllProducts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "createProduct",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbkBnbWFpbC5jb20iLCJyb2xlcyI6WyJST0xFX0FETUlOIl0sImlzcyI6Imh0dHA6Ly8xNTkuMjIzLjI5LjI0ODo4MDgwL2FwaS9pb3RhL3RyYWNraW5nL3YxL2xvZ2luIiwiZXhwIjoxNjg2NzIxNDU1fQ.cEw1B28tmhavp3nMjvqHkkMxs6TU2GAGlsflNX1Csew",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\":\"Product44\",\n    \"quantity\":4,\n    \"cost\":5000,\n    \"recipient\":\"johndoe@gmail.com\",\n    \"custodian\":\"Factory\",\n    \"Location\":\"Nairobi\",\n    \"deliveryaddress\":\"Kampala\"\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://159.223.29.248:8080/api/iota/tracking/v1/product/create",
+					"protocol": "http",
+					"host": [
+						"159",
+						"223",
+						"29",
+						"248"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"iota",
+						"tracking",
+						"v1",
+						"product",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "editProduct",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbkBnbWFpbC5jb20iLCJyb2xlcyI6WyJST0xFX0FETUlOIl0sImlzcyI6Imh0dHA6Ly8xNTkuMjIzLjI5LjI0ODo4MDgwL2FwaS9pb3RhL3RyYWNraW5nL3YxL2xvZ2luIiwiZXhwIjoxNjg2NzIxNDU1fQ.cEw1B28tmhavp3nMjvqHkkMxs6TU2GAGlsflNX1Csew",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "http://159.223.29.248:8080/api/iota/tracking/v1/product/edit?name=Product34&quantity=42&cost=5001&recipient=johndoe@gmail.com&custodian=Factory&location=Bomet&deliveryAddress=Arusha&id=3",
+					"protocol": "http",
+					"host": [
+						"159",
+						"223",
+						"29",
+						"248"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"iota",
+						"tracking",
+						"v1",
+						"product",
+						"edit"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "Product34"
+						},
+						{
+							"key": "quantity",
+							"value": "42"
+						},
+						{
+							"key": "cost",
+							"value": "5001"
+						},
+						{
+							"key": "recipient",
+							"value": "johndoe@gmail.com"
+						},
+						{
+							"key": "custodian",
+							"value": "Factory"
+						},
+						{
+							"key": "location",
+							"value": "Bomet"
+						},
+						{
+							"key": "deliveryAddress",
+							"value": "Arusha"
+						},
+						{
+							"key": "id",
+							"value": "3"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "postEvent",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbkBnbWFpbC5jb20iLCJyb2xlcyI6WyJST0xFX0FETUlOIl0sImlzcyI6Imh0dHA6Ly8xNTkuMjIzLjI5LjI0ODo4MDgwL2FwaS9pb3RhL3RyYWNraW5nL3YxL2xvZ2luIiwiZXhwIjoxNjg2NzIxNDU1fQ.cEw1B28tmhavp3nMjvqHkkMxs6TU2GAGlsflNX1Csew",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "http://159.223.29.248:8080/api/iota/tracking/v1/product/event?custodian=Zanzibar&location=Bomet&id=3",
+					"protocol": "http",
+					"host": [
+						"159",
+						"223",
+						"29",
+						"248"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"iota",
+						"tracking",
+						"v1",
+						"product",
+						"event"
+					],
+					"query": [
+						{
+							"key": "custodian",
+							"value": "Zanzibar"
+						},
+						{
+							"key": "location",
+							"value": "Bomet"
+						},
+						{
+							"key": "id",
+							"value": "3"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "findEventsByProductId",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbkBnbWFpbC5jb20iLCJyb2xlcyI6WyJST0xFX0FETUlOIl0sImlzcyI6Imh0dHA6Ly8xNTkuMjIzLjI5LjI0ODo4MDgwL2FwaS9pb3RhL3RyYWNraW5nL3YxL2xvZ2luIiwiZXhwIjoxNjg2NzIxNDU1fQ.cEw1B28tmhavp3nMjvqHkkMxs6TU2GAGlsflNX1Csew",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://159.223.29.248:8080/api/iota/tracking/v1/product/findAllEventsByProductId?id=1",
+					"protocol": "http",
+					"host": [
+						"159",
+						"223",
+						"29",
+						"248"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"iota",
+						"tracking",
+						"v1",
+						"product",
+						"findAllEventsByProductId"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

@@ -1,0 +1,47 @@
+<configuration>
+    <appender name="FILE-ROLLING" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>iotatracking.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <fileNamePattern>app.%d{yyyy-MM-dd}.%i.log.gz</fileNamePattern>
+            <!-- each archived file, size max 10MB -->
+            <maxFileSize>10MB</maxFileSize>
+            <!-- total size of all archive files, if total size > 20GB, it will delete old archived file -->
+            <totalSizeCap>20GB</totalSizeCap>
+            <!-- 60 days to keep -->
+            <maxHistory>60</maxHistory>
+        </rollingPolicy>
+        <encoder>
+            <pattern>%date %level [%thread] %logger{10} [%file:%line] %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%date %level [%thread] %logger{10} [%file:%line] %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <root level="info">
+        <appender-ref ref="FILE-ROLLING" />
+        <appender-ref ref="STDOUT" />
+    </root>
+
+    <springProfile name="dev">
+        <root level="info">
+            <appender-ref ref="FILE-ROLLING" />
+            <appender-ref ref="STDOUT" />
+        </root>
+        <!-- use additivity false to prevent logs from being printed twice due to the root log appender and the class level appender both writing to the log-->
+        <logger name="com.springboot.security.h2.springbootsecurityh2.MyController" additivity="false" level="info">
+            <appender-ref ref="STDOUT"/>
+            <appender-ref ref="FILE-ROLLING"/>
+        </logger>
+    </springProfile>
+
+    <springProfile name="prod">
+        <root level="info">
+            <appender-ref ref="FILE-ROLLING" />
+        </root>
+    </springProfile>
+
+</configuration>

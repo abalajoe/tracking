@@ -1,0 +1,25 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: iotatrackingservice
+  jpa:
+    show-sql: true
+    generate-ddl: true
+    hibernate:
+      ddl-auto: update
+    database: postgresql
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://iotatrackingdb/iotatrackingdb
+    #url: jdbc:postgresql://localhost:5432/iotatracking
+    username: postgres
+    password: root
+    hikari:
+      initialization-fail-timeout: 0
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+
+jwt:
+  secret: iiuhrererere4434

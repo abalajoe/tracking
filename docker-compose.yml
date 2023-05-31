@@ -1,0 +1,44 @@
+version: '3.2'
+
+services:
+  iotatrackingengine:
+    container_name: iotatrackingengine
+    image: joeabala/iotatrackingengine:latest
+    restart: always
+    ports:
+      - "8080:8080"
+    networks:
+      - trackingnetwork
+
+  iotatrackingweb:
+    container_name: iotatrackingweb
+    image: joeabala/iotatrackingweb:latest
+    ports:
+      - "80:80"
+    environment:
+      #- API_URL=http://localhost:83/api/iota/tracking/v1
+      - API_URL=http://159.223.29.248:8080/api/iota/tracking/v1
+    networks:
+      - trackingnetwork
+
+  iotatrackingdb:
+    restart: always
+    image: postgres:9.6
+    container_name: iotatrackingdb
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_PASSWORD=root
+      - POSTGRES_USER=postgres
+      - POSTGRES_DB=iotatrackingdb
+    volumes:
+      - ./sql/:/docker-entrypoint-initdb.d/
+      - ./iotatracking-data:/var/lib/postgresql/data
+    networks:
+      - trackingnetwork
+
+volumes:
+  iotatracking-data:
+
+networks:
+  trackingnetwork:
